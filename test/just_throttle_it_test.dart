@@ -64,7 +64,7 @@ void main() {
     group('with named arguments', () {
       test('Should increment counter immediately', () {
         throttleIt(() => Throttle.duration(
-            throttleDuration, _target, [], {Symbol("multiplier"): 2}));
+            throttleDuration, _targetNamedOnly, [], {Symbol("multiplier"): 2}));
         expect(_counter, equals(2));
       });
       test(
@@ -98,7 +98,7 @@ void main() {
     });
   });
 
-  group('`Throttle.milliseconds', () {
+  group('Throttle.milliseconds', () {
     group('without arguments', () {
       test('Should increment counter immediately', () {
         throttleIt(
@@ -173,7 +173,7 @@ void main() {
     });
   });
 
-  group('`Throttle.seconds', () {
+  group('Throttle.seconds', () {
     group('without arguments', () {
       test('Should increment counter immediately', () {
         throttleIt(() => Throttle.seconds(throttleSeconds, _targetNoArgs));
