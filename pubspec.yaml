@@ -1,11 +1,12 @@
 name: just_throttle_it
 description: A simple throttle library for limiting consecutive execution of functions
-version: 1.0.0
-homepage: https://github.com/truthmast/just_throttle_it
-author: Matt Hurst <matt@workpail.com>
+version: 2.0.0
+homepage: https://github.com/mhrst/just_throttle_it
+repository: https://github.com/mhrst/just_throttle_it
+issue_tracker: https://github.com/mhrst/just_throttle_it/issues
 
 environment:
-  sdk: '>=2.0.0 <3.0.0'
+  sdk: '>=2.12.0 <3.0.0'
 
 dev_dependencies:
-  test: ^1.6.5
+  test: ^1.16.5

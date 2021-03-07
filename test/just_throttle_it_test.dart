@@ -10,13 +10,13 @@ void main() {
   final throttleMilliseconds = 1000;
   final throttleDuration = Duration(seconds: throttleSeconds);
 
-  int _counter;
+  int _counter = 0;
   setUp(() => _counter = 0);
   int _targetNoArgs() => _counter = _counter + 1;
-  int _target(int incrementBy, {int multiplier}) =>
-      _counter = (_counter + incrementBy) * (multiplier ?? 1);
-  int _targetNamedOnly({int multiplier}) =>
-      _counter = (_counter + 1) * (multiplier ?? 1);
+  int _target(int incrementBy, {int multiplier = 1}) =>
+      _counter = (_counter + incrementBy) * multiplier;
+  int _targetNamedOnly({int multiplier = 1}) =>
+      _counter = (_counter + 1) * multiplier;
   tearDown(() {
     Throttle.clear(_target);
     Throttle.clear(_targetNoArgs);

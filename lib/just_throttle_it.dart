@@ -9,15 +9,15 @@ Map<Function, _ThrottleTarget> _throttled = <Function, _ThrottleTarget>{};
 class Throttle {
   /// Calls [duration] with a timeout specified in milliseconds.
   static bool milliseconds(int timeoutMs, Function target,
-          [List<dynamic> positionalArguments,
-          Map<Symbol, dynamic> namedArguments]) =>
+          [List<dynamic> positionalArguments = const [],
+          Map<Symbol, dynamic> namedArguments = const {}]) =>
       duration(Duration(milliseconds: timeoutMs), target, positionalArguments,
           namedArguments);
 
   /// Calls [duration] with a timeout specified in seconds.
   static bool seconds(int timeoutSeconds, Function target,
-          [List<dynamic> positionalArguments,
-          Map<Symbol, dynamic> namedArguments]) =>
+          [List<dynamic> positionalArguments = const [],
+          Map<Symbol, dynamic> namedArguments = const {}]) =>
       duration(Duration(seconds: timeoutSeconds), target, positionalArguments,
           namedArguments);
 
@@ -29,8 +29,8 @@ class Throttle {
   ///
   /// Returns [true] if the function was called, [false] if it was blocked.
   static bool duration(Duration timeout, Function target,
-      [List<dynamic> positionalArguments,
-      Map<Symbol, dynamic> namedArguments]) {
+      [List<dynamic> positionalArguments = const [],
+      Map<Symbol, dynamic> namedArguments = const {}]) {
     if (_throttled.containsKey(target)) {
       return false;
     }
