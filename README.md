@@ -1,6 +1,6 @@
 # just_throttle_it
 
-A simple throttle library for Dart.
+A simple throttle library for Dart. Supports throttling by function and stream throttling.
 
 ```dart
 import 'package:just_throttle_it/just_throttle_it.dart';
@@ -34,6 +34,24 @@ Throttle.duration(Duration timeout,
 To clear a throttled `target`, allowing the next throttled call to be immediately executed:
 ```dart
 Throttle.clear(Function target)
+```
+
+## Stream Throttling
+
+Use `ThrottleStreamTransfomer` to throttle any stream by a specified duration.
+
+```dart
+ThrottleStreamTransfomer(Duration timeout)
+```
+```dart
+ThrottleStreamTransfomer.seconds(int timeoutSeconds)
+```
+```dart
+ThrottleStreamTransfomer.milliseconds(int timeoutMs)
+```
+
+```dart
+Stream throttleStream(Stream input) => input.transform(ThrottleStreamTransformer.seconds(1));
 ```
 
 ## Example
