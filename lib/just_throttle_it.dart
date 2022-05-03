@@ -1,6 +1,7 @@
 library just_throttle_it;
 
 import 'dart:async';
+export 'streams/throttle_stream_transformer.dart';
 
 /// Map of functions currently being throttled.
 Map<Function, _ThrottleTarget> _throttled = <Function, _ThrottleTarget>{};
