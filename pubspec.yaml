@@ -1,6 +1,6 @@
 name: just_throttle_it
 description: A simple throttle library for limiting consecutive execution of functions
-version: 2.1.0
+version: 3.0.0
 homepage: https://github.com/mhrst/just_throttle_it
 repository: https://github.com/mhrst/just_throttle_it
 issue_tracker: https://github.com/mhrst/just_throttle_it/issues
