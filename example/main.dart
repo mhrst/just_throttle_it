@@ -13,21 +13,27 @@ void main() async {
   Throttle.milliseconds(500, printMs); // Will print immediately
 
   final duration = const Duration(milliseconds: 2000);
-  Throttle.duration(duration, print,
-      ["Hello World 1 (Throttle.duration)"]); // Will print immediately
-  Throttle.duration(
-      duration, print, ["Hello World 2 (Throttle.duration)"]); // Will not print
-  Throttle.duration(
-      duration, print, ["Hello World 3 (Throttle.duration)"]); // Will not print
-  Throttle.duration(
-      duration, print, ["Hello World 4 (Throttle.duration)"]); // Will not print
-  Throttle.duration(
-      duration, print, ["Hello World 5 (Throttle.duration)"]); // Will not print
+  Throttle.duration(duration, print, positionalArguments: [
+    "Hello World 1 (Throttle.duration)"
+  ]); // Will print immediately
+  Throttle.duration(duration, print, positionalArguments: [
+    "Hello World 2 (Throttle.duration)"
+  ]); // Will not print
+  Throttle.duration(duration, print, positionalArguments: [
+    "Hello World 3 (Throttle.duration)"
+  ]); // Will not print
+  Throttle.duration(duration, print, positionalArguments: [
+    "Hello World 4 (Throttle.duration)"
+  ]); // Will not print
+  Throttle.duration(duration, print, positionalArguments: [
+    "Hello World 5 (Throttle.duration)"
+  ]); // Will not print
 
   await Future.delayed(duration);
 
-  Throttle.duration(duration, print,
-      ["Hello World 6 (Throttle.duration)"]); // Will print immediately
+  Throttle.duration(duration, print, positionalArguments: [
+    "Hello World 6 (Throttle.duration)"
+  ]); // Will print immediately
 
   final streamController = StreamController();
   streamController.addStream(thirtySecondsStream());

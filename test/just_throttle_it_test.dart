@@ -79,40 +79,65 @@ void main() {
     });
     group('with positional arguments', () {
       test('Should increment counter immediately', () {
-        throttleIt(() => Throttle.duration(throttleDuration, _target, [2]));
+        throttleIt(() => Throttle.duration(
+              throttleDuration,
+              _target,
+              positionalArguments: [2],
+            ));
         expect(_counter, equals(2));
       });
 
       test(
           'Should increment counter when target is called after timeout duration',
           () async {
-        throttleIt(() => Throttle.duration(throttleDuration, _target, [2]));
+        throttleIt(() => Throttle.duration(
+              throttleDuration,
+              _target,
+              positionalArguments: [2],
+            ));
         await Future.delayed(throttleDuration);
-        throttleIt(() => Throttle.duration(throttleDuration, _target, [2]));
+        throttleIt(() => Throttle.duration(
+              throttleDuration,
+              _target,
+              positionalArguments: [2],
+            ));
         expect(_counter, greaterThan(2));
       });
     });
     group('with named arguments', () {
       test('Should increment counter immediately', () {
         throttleIt(() => Throttle.duration(
-            throttleDuration, _targetNamedOnly, [], {Symbol("multiplier"): 2}));
+              throttleDuration,
+              _targetNamedOnly,
+              namedArguments: {#multiplier: 2},
+            ));
         expect(_counter, equals(2));
       });
       test(
           'Should increment counter when target is called after timeout duration',
           () async {
         throttleIt(() => Throttle.duration(
-            throttleDuration, _targetNamedOnly, [], {Symbol("multiplier"): 2}));
+              throttleDuration,
+              _targetNamedOnly,
+              namedArguments: {#multiplier: 2},
+            ));
         await Future.delayed(throttleDuration);
         throttleIt(() => Throttle.duration(
-            throttleDuration, _targetNamedOnly, [], {Symbol("multiplier"): 2}));
+              throttleDuration,
+              _targetNamedOnly,
+              namedArguments: {#multiplier: 2},
+            ));
         expect(_counter, greaterThan(2));
       });
     });
     group('with named and positional arguments', () {
       test('Should increment counter immediately', () {
         throttleIt(() => Throttle.duration(
-            throttleDuration, _target, [2], {Symbol("multiplier"): 2}));
+              throttleDuration,
+              _target,
+              positionalArguments: [2],
+              namedArguments: {#multiplier: 2},
+            ));
         expect(_counter, equals(4));
       });
 
@@ -120,10 +145,18 @@ void main() {
           'Should increment counter when target is called after timeout duration',
           () async {
         throttleIt(() => Throttle.duration(
-            throttleDuration, _target, [2], {Symbol("multiplier"): 2}));
+              throttleDuration,
+              _target,
+              positionalArguments: [2],
+              namedArguments: {#multiplier: 2},
+            ));
         await Future.delayed(throttleDuration);
         throttleIt(() => Throttle.duration(
-            throttleDuration, _target, [2], {Symbol("multiplier"): 2}));
+              throttleDuration,
+              _target,
+              positionalArguments: [2],
+              namedArguments: {#multiplier: 2},
+            ));
         expect(_counter, greaterThan(4));
       });
     });
@@ -150,44 +183,66 @@ void main() {
     });
     group('with positional arguments', () {
       test('Should increment counter immediately', () {
-        throttleIt(
-            () => Throttle.milliseconds(throttleMilliseconds, _target, [2]));
+        throttleIt(() => Throttle.milliseconds(
+              throttleMilliseconds,
+              _target,
+              positionalArguments: [2],
+            ));
         expect(_counter, equals(2));
       });
 
       test(
           'Should increment counter when target is called after timeout duration',
           () async {
-        throttleIt(
-            () => Throttle.milliseconds(throttleMilliseconds, _target, [2]));
+        throttleIt(() => Throttle.milliseconds(
+              throttleMilliseconds,
+              _target,
+              positionalArguments: [2],
+            ));
         await Future.delayed(throttleDuration);
-        throttleIt(
-            () => Throttle.milliseconds(throttleMilliseconds, _target, [2]));
+        throttleIt(() => Throttle.milliseconds(
+              throttleMilliseconds,
+              _target,
+              positionalArguments: [2],
+            ));
         expect(_counter, greaterThan(2));
       });
     });
     group('with named arguments', () {
       test('Should increment counter immediately', () {
-        throttleIt(() => Throttle.milliseconds(throttleMilliseconds,
-            _targetNamedOnly, [], {Symbol("multiplier"): 2}));
+        throttleIt(() => Throttle.milliseconds(
+              throttleMilliseconds,
+              _targetNamedOnly,
+              namedArguments: {#multiplier: 2},
+            ));
         expect(_counter, equals(2));
       });
 
       test(
           'Should increment counter when target is called after timeout duration',
           () async {
-        throttleIt(() => Throttle.milliseconds(throttleMilliseconds,
-            _targetNamedOnly, [], {Symbol("multiplier"): 2}));
+        throttleIt(() => Throttle.milliseconds(
+              throttleMilliseconds,
+              _targetNamedOnly,
+              namedArguments: {#multiplier: 2},
+            ));
         await Future.delayed(throttleDuration);
-        throttleIt(() => Throttle.milliseconds(throttleMilliseconds,
-            _targetNamedOnly, [], {Symbol("multiplier"): 2}));
+        throttleIt(() => Throttle.milliseconds(
+              throttleMilliseconds,
+              _targetNamedOnly,
+              namedArguments: {#multiplier: 2},
+            ));
         expect(_counter, greaterThan(2));
       });
     });
     group('with named and positional arguments', () {
       test('Should increment counter immediately', () {
         throttleIt(() => Throttle.milliseconds(
-            throttleMilliseconds, _target, [2], {Symbol("multiplier"): 2}));
+              throttleMilliseconds,
+              _target,
+              positionalArguments: [2],
+              namedArguments: {#multiplier: 2},
+            ));
         expect(_counter, equals(4));
       });
 
@@ -195,10 +250,18 @@ void main() {
           'Should increment counter when target is called after timeout duration',
           () async {
         throttleIt(() => Throttle.milliseconds(
-            throttleMilliseconds, _target, [2], {Symbol("multiplier"): 2}));
+              throttleMilliseconds,
+              _target,
+              positionalArguments: [2],
+              namedArguments: {#multiplier: 2},
+            ));
         await Future.delayed(throttleDuration);
         throttleIt(() => Throttle.milliseconds(
-            throttleMilliseconds, _target, [2], {Symbol("multiplier"): 2}));
+              throttleMilliseconds,
+              _target,
+              positionalArguments: [2],
+              namedArguments: {#multiplier: 2},
+            ));
         expect(_counter, greaterThan(4));
       });
     });
@@ -222,23 +285,38 @@ void main() {
     });
     group('with positional arguments', () {
       test('Should increment counter immediately', () {
-        throttleIt(() => Throttle.seconds(throttleSeconds, _target, [2]));
+        throttleIt(() => Throttle.seconds(
+              throttleSeconds,
+              _target,
+              positionalArguments: [2],
+            ));
         expect(_counter, equals(2));
       });
 
       test(
           'Should increment counter when target is called after timeout duration',
           () async {
-        throttleIt(() => Throttle.seconds(throttleSeconds, _target, [2]));
+        throttleIt(() => Throttle.seconds(
+              throttleSeconds,
+              _target,
+              positionalArguments: [2],
+            ));
         await Future.delayed(throttleDuration);
-        throttleIt(() => Throttle.seconds(throttleSeconds, _target, [2]));
+        throttleIt(() => Throttle.seconds(
+              throttleSeconds,
+              _target,
+              positionalArguments: [2],
+            ));
         expect(_counter, greaterThan(2));
       });
     });
     group('with named arguments', () {
       test('Should increment counter immediately', () {
         throttleIt(() => Throttle.seconds(
-            throttleSeconds, _targetNamedOnly, [], {Symbol("multiplier"): 2}));
+              throttleSeconds,
+              _targetNamedOnly,
+              namedArguments: {#multiplier: 2},
+            ));
         expect(_counter, equals(2));
       });
 
@@ -246,17 +324,27 @@ void main() {
           'Should increment counter when target is called after timeout duration',
           () async {
         throttleIt(() => Throttle.seconds(
-            throttleSeconds, _targetNamedOnly, [], {Symbol("multiplier"): 2}));
+              throttleSeconds,
+              _targetNamedOnly,
+              namedArguments: {#multiplier: 2},
+            ));
         await Future.delayed(throttleDuration);
         throttleIt(() => Throttle.seconds(
-            throttleSeconds, _targetNamedOnly, [], {Symbol("multiplier"): 2}));
+              throttleSeconds,
+              _targetNamedOnly,
+              namedArguments: {#multiplier: 2},
+            ));
         expect(_counter, greaterThan(2));
       });
     });
     group('with named and positional arguments', () {
       test('Should increment counter immediately', () {
         throttleIt(() => Throttle.seconds(
-            throttleSeconds, _target, [2], {Symbol("multiplier"): 2}));
+              throttleSeconds,
+              _target,
+              positionalArguments: [2],
+              namedArguments: {#multiplier: 2},
+            ));
         expect(_counter, equals(4));
       });
 
@@ -264,10 +352,18 @@ void main() {
           'Should increment counter when target is called after timeout duration',
           () async {
         throttleIt(() => Throttle.seconds(
-            throttleSeconds, _target, [2], {Symbol("multiplier"): 2}));
+              throttleSeconds,
+              _target,
+              positionalArguments: [2],
+              namedArguments: {#multiplier: 2},
+            ));
         await Future.delayed(throttleDuration);
         throttleIt(() => Throttle.seconds(
-            throttleSeconds, _target, [2], {Symbol("multiplier"): 2}));
+              throttleSeconds,
+              _target,
+              positionalArguments: [2],
+              namedArguments: {#multiplier: 2},
+            ));
         expect(_counter, greaterThan(4));
       });
     });
@@ -302,6 +398,85 @@ void main() {
           ThrottleStreamTransformer.milliseconds(throttleMilliseconds));
       await Future.delayed(throttleDuration * expected);
       expect(_counter, equals(expected));
+    });
+  });
+
+  group('Throttle leading/trailing options', () {
+    test(
+        'Should execute only on leading edge when leading=true, trailing=false',
+        () async {
+      throttleIt(() => Throttle.duration(
+            throttleDuration,
+            _targetNoArgs,
+            leading: true,
+            trailing: false,
+          ));
+      await Future.delayed(throttleDuration);
+      expect(_counter, equals(1)); // Only first call executed
+    });
+
+    test(
+        'Should execute only on trailing edge when leading=false, trailing=true',
+        () async {
+      throttleIt(() => Throttle.duration(
+            throttleDuration,
+            _targetNoArgs,
+            leading: false,
+            trailing: true,
+          ));
+      expect(_counter, equals(0)); // No immediate execution
+      await Future.delayed(throttleDuration);
+      expect(_counter, equals(1)); // Executed after delay
+    });
+
+    test('Should execute on both edges when leading=true, trailing=true',
+        () async {
+      throttleIt(() => Throttle.duration(
+            throttleDuration,
+            _targetNoArgs,
+            leading: true,
+            trailing: true,
+          ));
+      expect(_counter, equals(1)); // Immediate execution
+      await Future.delayed(throttleDuration);
+      expect(_counter, equals(2)); // Trailing execution
+    });
+
+    test('Should not execute at all when leading=false, trailing=false',
+        () async {
+      throttleIt(() => Throttle.duration(
+            throttleDuration,
+            _targetNoArgs,
+            leading: false,
+            trailing: false,
+          ));
+      expect(_counter, equals(0)); // No immediate execution
+      await Future.delayed(throttleDuration);
+      expect(_counter, equals(0)); // Still no execution
+    });
+
+    test('Should handle multiple throttle windows correctly', () async {
+      // First window
+      throttleIt(() => Throttle.duration(
+            throttleDuration,
+            _targetNoArgs,
+            leading: true,
+            trailing: true,
+          ));
+      expect(_counter, equals(1)); // Leading edge of first window
+      await Future.delayed(throttleDuration);
+      expect(_counter, equals(2)); // Trailing edge of first window
+
+      // Second window
+      throttleIt(() => Throttle.duration(
+            throttleDuration,
+            _targetNoArgs,
+            leading: true,
+            trailing: true,
+          ));
+      expect(_counter, equals(3)); // Leading edge of second window
+      await Future.delayed(throttleDuration);
+      expect(_counter, equals(4)); // Trailing edge of second window
     });
   });
 }
