@@ -15,20 +15,26 @@ There are three methods available for throttling. A value of `true` will be retu
 ```dart
 Throttle.seconds(int timeoutSeconds, 
     Function target,
-    [List<dynamic> positionalArguments, 
-    Map<Symbol, dynamic> namedArguments])
+    {List<dynamic> positionalArguments, 
+    Map<Symbol, dynamic> namedArguments,
+    bool leading = true,
+    bool trailing = false})
 ```
 ```dart
 Throttle.milliseconds(int timeoutMs, 
     Function target,
-    [List<dynamic> positionalArguments, 
-    Map<Symbol, dynamic> namedArguments])
+    {List<dynamic> positionalArguments, 
+    Map<Symbol, dynamic> namedArguments,
+    bool leading = true,
+    bool trailing = false})
 ```
 ```dart
 Throttle.duration(Duration timeout, 
     Function target,
-    [List<dynamic> positionalArguments, 
-    Map<Symbol, dynamic> namedArguments])
+    {List<dynamic> positionalArguments, 
+    Map<Symbol, dynamic> namedArguments,
+    bool leading = true,
+    bool trailing = false})
 ```
 
 To clear a throttled `target`, allowing the next throttled call to be immediately executed:
